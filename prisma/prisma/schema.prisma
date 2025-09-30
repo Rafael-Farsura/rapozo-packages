@@ -1,0 +1,846 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Person {
+  id          String       @id @default(uuid()) @db.Uuid
+  name        String       @db.VarChar(255)
+  email       String       @db.VarChar(255)
+  loginEmail  String?      @db.VarChar(255)
+  cpfCnpj     String       @unique @db.VarChar(25)
+  birthDate   DateTime?    @db.Date
+  auth        PersonAuth?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  status      StatusPerson
+  site        String?      @db.VarChar(255)
+  incomeValue Float        @db.DoublePrecision
+  walletId    String       @db.VarChar(255)
+  apiKey      String?      @db.VarChar(255)
+  companyType CompanyType?
+  personType  PersonType?
+
+  accountNumber   Account[]
+  webhook         Webhook[]
+  phoneNumber     PhoneNumber[]
+  mobilePhone     MobilePhone[]
+  address         Address[]
+  personDocument  PersonDocument?
+  transactions    TokenTransaction[]
+  assetOwnerships AssetOwnership[]
+
+  @@map("person")
+}
+
+model PersonAuth {
+  id              String          @id @default(uuid()) @db.Uuid
+  email           String          @unique @db.VarChar(255)
+  password        String          @db.VarChar(255)
+  personId        String          @unique @db.Uuid
+  created_at      DateTime        @default(now())
+  updated_at      DateTime        @updatedAt
+  activate_tokens ActivateToken[]
+  Person          Person          @relation(fields: [personId], references: [id], onDelete: Cascade)
+
+  @@map("person_auth")
+}
+
+model ActivateToken {
+  id             String            @id @default(uuid()) @db.Uuid
+  person_auth_id String            @db.Uuid
+  token          String            @unique @db.VarChar(255)
+  expires_at     DateTime
+  used           Boolean           @default(false)
+  type           ActivateTokenType
+  created_at     DateTime          @default(now())
+  updated_at     DateTime          @updatedAt
+  person         PersonAuth        @relation(fields: [person_auth_id], references: [id], onDelete: Cascade)
+
+  @@map("active_auth_tokens")
+}
+
+model Fii {
+  id                    String   @id @default(uuid()) @db.Uuid
+  asset_name            String   @db.VarChar(255)
+  issuer                String   @db.VarChar(255)
+  min_value             Decimal  @db.Decimal(15, 2)
+  profitability         Decimal  @db.Decimal(5, 2)
+  dividend_yield        Decimal  @db.Decimal(5, 2)
+  investment_date       DateTime @db.Date
+  liquidity             String   @db.VarChar
+  risk_rating           String   @db.VarChar
+  fees                  String   @db.VarChar(255)
+  income_tax_applicable Boolean  @default(false)
+  ir_exemption          Boolean  @default(false)
+  fgc_guarantee         Boolean  @default(false)
+
+  @@map("fii_investment")
+}
+
+model Coe {
+  id String @id @default(uuid()) @db.Uuid
+
+  @@map("coe_investment")
+}
+
+model FixedIncome {
+  id                    String   @id @default(uuid()) @db.Uuid
+  asset_name            String   @db.VarChar(255)
+  issuer                String   @db.VarChar(255)
+  min_value             Decimal  @db.Decimal(15, 2)
+  profitability         Decimal  @db.Decimal(5, 2)
+  interest_rate         String   @db.VarChar(50)
+  index_type            String   @db.VarChar(50)
+  remuneration_type     String   @db.VarChar(50)
+  issue_date            DateTime @db.Date
+  maturity_date         DateTime @db.Date
+  investment_date       DateTime @db.Date
+  grace_period          Int
+  income_tax_applicable Boolean  @default(false)
+  iof_applicable        Boolean  @default(false)
+  ir_exemption          Boolean  @default(false)
+  fgc_guarantee         Boolean  @default(false)
+  risk_rating           String   @db.VarChar
+  liquidity             String   @db.VarChar
+  secondary_market      Boolean  @default(false)
+  fees                  String   @db.VarChar(255)
+
+  @@map("fixed_income")
+}
+
+model Debenture {
+  id                         String        @id @default(uuid()) @db.Uuid
+  asset_product_id           String        @db.Uuid
+  issuer                     String        @db.VarChar(255)
+  ISIN_code                  String        @db.VarChar(50)
+  debenture_type             DebentureType
+  subordination_level        String?       @db.VarChar(50)
+  guarantee_type             String?       @db.VarChar(50)
+  covenants                  String?       @db.VarChar(255)
+  rating_agency              String?       @db.VarChar(50)
+  credit_rating              String?       @db.VarChar(50)
+  convertable                Boolean       @default(false)
+  exchangeable               Boolean       @default(false)
+  amortizations_schedule     String?       @db.VarChar(255)
+  interest_payment_frequency String?       @db.VarChar(50)
+  has_secondary_market       Boolean       @default(false)
+  AssetProduct               AssetProduct  @relation(fields: [asset_product_id], references: [id], onUpdate: NoAction)
+
+  @@map("debenture")
+}
+
+model Cdb {
+  id               String  @id @default(uuid()) @db.Uuid
+  covered_by_fgc   Boolean @default(false)
+  asset_product_id String  @db.Uuid
+  is_tax_free      Boolean @default(false)
+  property_backed  Boolean @default(false)
+
+  @@map("cdb_investment")
+}
+
+model Lca {
+  id               String  @id @default(uuid()) @db.Uuid
+  covered_by_fgc   Boolean @default(false)
+  asset_product_id String  @db.Uuid
+  is_tax_free      Boolean @default(false)
+  property_backed  Boolean @default(false)
+
+  @@map("lca_investment")
+}
+
+model Lci {
+  id               String  @id @default(uuid()) @db.Uuid
+  covered_by_fgc   Boolean @default(false)
+  asset_product_id String  @db.Uuid
+  is_tax_free      Boolean @default(false)
+  property_backed  Boolean @default(false)
+
+  @@map("lci_investment")
+}
+
+model TesouroDireto {
+  id               String  @id @default(uuid()) @db.Uuid
+  covered_by_fgc   Boolean @default(false)
+  asset_product_id String  @db.Uuid
+  is_tax_free      Boolean @default(false)
+  property_backed  Boolean @default(false)
+
+  @@map("tesouro_direto")
+}
+
+model Transaction {
+  id               String       @id @default(uuid()) @db.Uuid
+  wallet_id        String       @db.Uuid
+  asset_product_id String       @db.Uuid
+  transaction_type String       @db.VarChar
+  transaction_date DateTime     @db.Timestamptz(6)
+  quantity         Decimal      @db.Decimal(20, 5)
+  unit_price       Decimal      @db.Decimal(20, 5)
+  total_value      Decimal      @db.Decimal(20, 5)
+  metadata         Json?
+  AssetProduct     AssetProduct @relation(fields: [asset_product_id], references: [id], onUpdate: NoAction)
+  Wallet           Wallet       @relation(fields: [wallet_id], references: [id], onUpdate: NoAction)
+
+  @@map("transactions")
+}
+
+model AssetProduct {
+  id           String        @id @default(uuid()) @db.Uuid
+  asset_type   String        @db.VarChar
+  asset_id     String        @db.Uuid
+  yield_type   String        @db.VarChar
+  created_at   DateTime      @default(now())
+  Debenture    Debenture[]
+  transactions Transaction[]
+
+  @@map("asset_product")
+}
+
+model Address {
+  id            String   @id @default(uuid()) @db.Uuid
+  address       String   @db.VarChar(255)
+  addressNumber String   @db.VarChar(20)
+  complement    String?  @db.VarChar(255)
+  city          Int?
+  state         String   @db.VarChar(2)
+  postalCode    String   @db.VarChar(10)
+  province      String?  @default("Brasil") @db.VarChar(255)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  personId      String   @db.Uuid
+  person        Person   @relation(fields: [personId], references: [id])
+
+  @@map("address")
+}
+
+model Account {
+  id                  String           @id @default(uuid()) @db.Uuid
+  accountNumber       Int              @unique @default(autoincrement())
+  accountAgency       Int              @default(0001)
+  asaasAccountAgency  String?          @db.VarChar(20)
+  asaasAccountNumber  String?          @db.VarChar(20)
+  asaasAccountDigit   String?          @db.VarChar(20)
+  status              AccountStatus    @default(ACTIVE)
+  createdAt           DateTime         @default(now())
+  updatedAt           DateTime         @updatedAt
+  investorProfileId   String?          @unique @db.Uuid
+  fkInvestorProfile   InvestorProfile? @relation(fields: [investorProfileId], references: [id])
+  wallets             Wallet[]
+
+  personId String @db.Uuid
+  person   Person @relation(fields: [personId], references: [id])
+
+  @@map("account")
+}
+
+model InvestorProfile {
+  id          String         @id @default(uuid()) @db.Uuid
+  riskLevel   RiskLevel
+  goal        InvestmentGoal
+  goalHorizon GoalHorizon?
+  income      Decimal        @db.Decimal(15, 2)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  account     Account?
+
+  @@map("investor_profile")
+}
+
+model Wallet {
+  id          String        @id @default(uuid()) @db.Uuid
+  amount      Decimal       @db.Decimal(20, 5)   @default(0)
+  accountType AccountType
+  accountId   String        @map("fk_account_id") @db.Uuid
+  transaction Transaction[]
+  account     Account       @relation(fields: [accountId], references: [id], onUpdate: NoAction)
+
+  @@map("wallet")
+}
+
+model BlockchainTransaction {
+  id              String            @id @default(uuid()) @db.Uuid
+  transactionHash String            @unique @db.VarChar(66)
+  blockNumber     BigInt
+  fromAddress     String            @db.VarChar(42)
+  toAddress       String            @db.VarChar(42)
+  value           String            @db.VarChar(100)
+  gasUsed         BigInt
+  gasPrice        String            @db.VarChar(100)
+  status          TransactionStatus
+  network         String            @db.VarChar(50)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  @@map("blockchain_transaction")
+}
+
+model UtilityToken {
+  id              String           @id @default(uuid()) @db.Uuid
+  name            String           @db.VarChar(100)
+  symbol          String           @db.VarChar(10)
+  totalSupply     String           @db.VarChar(100)
+  decimals        Int              @default(18)
+  contractAddress String?          @db.VarChar(42)
+  network         String           @db.VarChar(50)
+  status          TokenStatus      @default(ACTIVE)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  assetOwnerships AssetOwnership[]
+  TokenBalance    TokenBalance[]
+
+  @@map("utility_token")
+}
+
+model TokenBalance {
+  id        String       @id @default(uuid()) @db.Uuid
+  personId  String       @db.Uuid
+  tokenId   String       @db.Uuid
+  balance   Decimal      @db.Decimal(20, 8)
+  token     UtilityToken @relation(fields: [tokenId], references: [id], onDelete: Cascade)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  @@unique([personId, tokenId])
+  @@map("token_balance")
+}
+
+model PhoneNumber {
+  id          String  @id @default(uuid()) @db.Uuid
+  countryCode String? @map("country_code") @db.VarChar(26)
+  number      String? @db.VarChar(50)
+  personId    String  @db.Uuid
+  person      Person  @relation(fields: [personId], references: [id])
+
+  @@map("phone_number")
+}
+
+model MobilePhone {
+  id          String @id @default(uuid()) @db.Uuid
+  countryCode String @map("country_code") @db.VarChar(26)
+  number      String @db.VarChar(50)
+
+  personId String @db.Uuid
+  person   Person @relation(fields: [personId], references: [id])
+
+  @@map("mobile_phone")
+}
+
+model PersonDocument {
+  personId   String   @unique @db.Uuid
+  documentId String   @unique @db.Uuid
+  fkDocument Document @relation(fields: [documentId], references: [id])
+  fkPerson   Person   @relation(fields: [personId], references: [id])
+
+  @@id([personId, documentId])
+  @@map("person_document")
+}
+
+model Document {
+  id             String          @id @default(uuid()) @db.Uuid
+  createdAt      DateTime        @default(now()) @db.Timestamp(6)
+  updatedAt      DateTime        @updatedAt @db.Timestamp(6)
+  documentFile   String
+  type           DocumentType
+  personDocument PersonDocument?
+
+  @@map("document")
+}
+
+model InvestmentBalance {
+  balance            Decimal  @db.Decimal(15, 2)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  investmentWalletId String   @db.Uuid
+  assetId            String   @db.Uuid
+
+  @@unique([investmentWalletId, assetId], name: "investmentWalletId_assetId")
+  @@map("investment_balance")
+}
+
+model TokenTransaction {
+  id        String            @id @default(uuid()) @db.Uuid
+  personId  String            @db.Uuid
+  type      TransactionType
+  amount    Decimal           @db.Decimal(15, 2)
+  currency  String            @db.VarChar(10) // "BRL", "TOKEN", etc.
+  tokenId   String?           @db.Uuid
+  status    TransactionStatus @default(PENDING)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+
+  person Person @relation(fields: [personId], references: [id])
+
+  @@map("token_transactions")
+}
+
+model AssetOwnership {
+  id        String          @id @default(uuid()) @db.Uuid
+  personId  String          @db.Uuid
+  tokenId   String          @db.Uuid
+  assetId   String          @db.VarChar(100)
+  status    OwnershipStatus
+  createdAt DateTime        @default(now())
+
+  person Person       @relation(fields: [personId], references: [id])
+  token  UtilityToken @relation(fields: [tokenId], references: [id])
+
+  @@map("asset_ownership")
+}
+
+model Webhook {
+  id          String       @id @default(uuid()) @db.Uuid
+  name        String?      @db.VarChar(255)
+  url         String?      @db.VarChar(255)
+  email       String?      @db.VarChar(255)
+  enable      Boolean?     @db.Boolean
+  interrupted Boolean?     @db.Boolean
+  apiVersion  String?      @db.VarChar(50)
+  authVersion String?      @db.VarChar(50)
+  authToken   String?      @db.VarChar(255)
+  sendType    String?      @db.VarChar(50)
+  events      EventsType[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  personId String @db.Uuid
+  person   Person @relation(fields: [personId], references: [id])
+
+  @@map("webhook")
+}
+
+model Customers {
+  id                    String   @id @default(uuid()) @db.Uuid
+  user_id               String?  @db.Uuid
+  inactive              Boolean? @default(false)
+  name                  String   @db.VarChar(255)
+  cpf_cnpj              String   @db.VarChar(21)
+  email                 String?  @db.VarChar(255)
+  phone                 String?  @db.VarChar(20)
+  mobile_phone          String?  @db.VarChar(20)
+  address               String?  @db.VarChar(255)
+  address_number        String?  @db.VarChar(20)
+  complement            String?  @db.VarChar(255)
+  province              String?  @db.VarChar(100)
+  postal_code           String?  @db.VarChar(20)
+  external_reference    String?  @db.VarChar(255)
+  notification_disabled Boolean? @default(false)
+  additional_emails     String?  @db.Text
+  municipalInscription  String?  @db.VarChar(50)
+  stateInscription      String?  @db.VarChar(50)
+  observations          String?  @db.Text
+  company               Boolean? @default(false)
+  foreignCustomer       Boolean? @default(false)
+  created_at            DateTime @default(now()) @db.Timestamptz
+  updated_at            DateTime @updatedAt @db.Timestamptz
+
+  person_type   PersonType
+  group_company GroupsCompany? @relation(fields: [user_id], references: [id])
+
+  @@map("customers")
+}
+
+model GroupsCompany {
+  id         String   @id @default(uuid()) @db.Uuid
+  user_id    String?  @db.Uuid
+  group_name String   @db.VarChar(255)
+  is_current Boolean? @default(false)
+
+  customers Customers[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("groups_company")
+}
+
+model AsaasTransfers {
+  id                 String  @id @db.Uuid
+  wallet_id          String? @db.Uuid
+  external_reference String  @db.VarChar(255)
+
+  transfer_id String @unique @db.Uuid
+
+  transfer Transfers @relation(fields: [transfer_id], references: [asaas_transfer_id])
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("transfer_asaas_account")
+}
+
+model TransferBankAccount {
+  id            String           @id @db.Uuid
+  bank_code     String           @db.VarChar(10)
+  account_name  String           @db.VarChar(100)
+  owner_name    String
+  owner_birth   DateTime?        @db.Date
+  cpf_cnpj      String           @db.VarChar(21)
+  agency        String           @db.VarChar(10)
+  account       String           @db.VarChar(20)
+  account_digit String           @db.VarChar(5)
+  account_type  BankAccountType?
+  ispb          String?          @db.VarChar(20)
+
+  transfers Transfers[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("transfer_bank_account")
+}
+
+model TransferPixKey {
+  id        String     @id @db.Uuid
+  key_type  PixKeyType
+  key_value String     @db.VarChar(255)
+
+  transfers Transfers[]
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("transfer_pix_key")
+}
+
+model Transfers {
+  id                      String                @id @db.Uuid
+  asaas_transfer_id       String                @unique @db.Uuid
+  operation_type          TransferOperationType
+  created_at_asaas        DateTime              @db.Date
+  value                   Decimal               @db.Decimal(10, 2)
+  net_value               Decimal?              @db.Decimal(10, 2)
+  status                  TransferStatus
+  transfer_fee            Decimal?              @db.Decimal(10, 2)
+  effective_date_asaas    DateTime?             @db.Timestamp(6)
+  schedule_date           DateTime?             @db.Date
+  end_to_end_identifier   String?               @db.VarChar(255)
+  authorized              Boolean?              @default(false)
+  fail_reason             String?               @db.VarChar(255)
+  external_reference      String?               @db.VarChar(255)
+  transaction_receipt_url String?               @db.VarChar(255)
+  description             String?               @db.VarChar(255)
+  can_be_cancelled        Boolean?              @default(false)
+  recurring               String?               @db.Uuid
+  recurring_frequency     String?               @db.VarChar(50)
+  recurring_quantity      Int?                  @db.Integer
+  bank_account_id         String?               @db.Uuid
+  pix_key_id              String?               @db.Uuid
+
+  bank_account   TransferBankAccount? @relation(fields: [bank_account_id], references: [id])
+  pix_key        TransferPixKey?      @relation(fields: [pix_key_id], references: [id])
+  asaas_transfer AsaasTransfers?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("transfers")
+}
+
+model PixAddressKey {
+  id                   String       @id @default(uuid()) @db.Uuid
+  addressId            String       @unique @map("address_id") @db.Uuid
+  key                  String       @unique @db.Uuid
+  type                 PixKeyType   @default(EVP)
+  status               PixKeyStatus @default(ACTIVE)
+  dataCreated          DateTime     @default(now()) @map("data_created")
+  canBeDeleted         Boolean      @default(false) @map("can_be_deleted") @db.Boolean
+  cannotBeDeleteReason String?      @map("cannot_be_delete_reason") @db.VarChar(255)
+
+  qrCode       PixQrCode?
+  staticQrCode PixStaticQrCode[]
+
+  @@map("pix_address_keys")
+}
+
+model PixQrCode {
+  id           String @id @default(uuid())
+  fkKey        String @unique @map("fk_key") @db.Uuid
+  payload      String @db.VarChar(255)
+  encodedImage String @db.Text
+
+  key PixAddressKey @relation(fields: [fkKey], references: [id])
+
+  @@map("pix_qr_codes")
+}
+
+model PixStaticQrCode {
+  id                     String    @id @default(uuid()) @db.Uuid
+  addressId              String    @unique @map("address_id") @db.Uuid
+  addressKey             String?   @map("address_key") @db.Uuid
+  value                  Decimal?  @db.Decimal(15, 2)
+  encodedImage           String    @map("encoded_image") @db.VarChar(255)
+  payload                String    @db.Text
+  allowsMultiplePayments Boolean   @default(false) @map("allows_multiple_payments") @db.Boolean
+  expirationDate         DateTime? @map("expiration_date")
+  externalReference      String?   @map("external_reference") @db.VarChar(255)
+  description            String?   @db.VarChar(255)
+
+  key PixAddressKey? @relation(fields: [addressKey], references: [key])
+
+  @@map("pix_static_qr_codes")
+}
+
+// Enums
+enum AccountType {
+  CHECKING
+  SAVINGS
+  INVESTMENT
+  INTERNATIONAL
+
+  @@map("account_type")
+}
+
+enum StatusPerson {
+  PENDING
+  INTEGRATING
+  SUCCESS
+  FAILED
+  ACTIVE
+  BLOCKED
+  DELETED
+
+  @@map("status_person")
+}
+
+enum CompanyType {
+  MEI
+  LIMITED
+  INDIVIDUAL
+  ASSOCIATION
+
+  @@map("company_type")
+}
+
+enum PersonType {
+  FISICA
+  JURIDICA
+
+  @@map("person_type")
+}
+
+enum EventsType {
+  SUBSCRIPTION_CREATED
+  SUBSCRIPTION_UPDATED
+  SUBSCRIPTION_INACTIVATED
+  SUBSCRIPTION_DELETED
+  SUBSCRIPTION_SPLIT_DIVERGENCE_BLOCK
+  SUBSCRIPTION_SPLIT_DIVERGENCE_BLOCK_FINISHED
+  PAYMENT_CREATED
+  PAYMENT_RECEIVED
+  PAYMENT_CONFIRMED
+  PAYMENT_AUTHORIZED
+  PAYMENT_REFUNDED
+  PAYMENT_OVERDUE
+  PAYMENT_DELETED
+  PAYMENT_ANTICIPATED
+  PAYMENT_CHARGEBACK_REQUESTED
+  PAYMENT_CHARGEBACK_DISPUTE
+  PAYMENT_REPROVED_BY_RISK_ANALYSIS
+  PAYMENT_APPROVED_BY_RISK_ANALYSIS
+  PAYMENT_CREDIT_CARD_CAPTURE_REFUSED
+
+  @@map("events_types")
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  TOKEN_PURCHASE
+  TOKEN_SALE
+  TRANSFER
+
+  @@map("transaction_type")
+}
+
+enum AssetType {
+  NFT
+  STOCK
+  REAL_ESTATE
+  COLLECTIBLE
+  OTHER
+
+  @@map("asset_type")
+}
+
+enum OwnershipStatus {
+  ACTIVE
+  TRANSFERRED
+  REVOKED
+
+  @@map("ownership_status")
+}
+
+enum AccountStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  CLOSED
+
+  @@map("account_status")
+}
+
+enum RiskLevel {
+  CONSERVADOR
+  MODERADO
+  AGRESSIVO
+
+  @@map("risk_level")
+}
+
+enum ExperienceLevel {
+  INICIANTE
+  INTERMEDIARIO
+  AVANCADO
+
+  @@map("experience_level")
+}
+
+enum InvestmentGoal {
+  VIAGEM
+  RESERVA
+  CASA
+  EDUCACAO
+  REFORMA
+  APOSENTADORIA
+  PATRIMONIO
+  OUTROS
+
+  @@map("investment_goal")
+}
+
+enum GoalHorizon {
+  CURTO_PRAZO
+  MEDIO_PRAZO
+  LONGO_PRAZO
+
+  @@map("goal_horizon")
+}
+
+enum WalletStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  CLOSED
+
+  @@map("wallet_status")
+}
+
+enum InvestmentWalletType {
+  STOCKS
+  BONDS
+  CRYPTO
+  MIXED
+
+  @@map("investment_wallet_type")
+}
+
+enum DebentureType {
+  SIMPLES
+  CONVERSIVEL
+  PERMUTAVEL
+
+  @@map("debenture_type")
+}
+
+enum DebentureStatus {
+  ACTIVE
+  MATURED
+  DEFAULTED
+  SUSPENDED
+
+  @@map("debenture_status")
+}
+
+enum TransactionStatus {
+  PENDING
+  CONFIRMED
+  FAILED
+
+  @@map("transaction_status")
+}
+
+enum TokenStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+
+  @@map("token_status")
+}
+
+enum ActivateTokenType {
+  ACTIVATION
+  PASSWORD_RESET
+  EMAIL_VERIFICATION
+  
+  @@map("activate_token_type")
+}
+
+enum DocumentType {
+  IDENTIFICATION
+  SOCIAL_CONTRACT
+  ENTREPENEUER_REQUIREMENT
+  MINUTES_OF_ELECTION
+  CUSTOM
+
+  @@map("document_type")
+}
+
+enum TransferOperationType {
+  PIX
+  TED
+  INTERNAL
+
+  @@map("transfer_operation_type")
+}
+
+enum TransferStatus {
+  PENDING
+  BANK_PROCESSING
+  DONE
+  CANCELLED
+  FAILED
+
+  @@map("transfer_status")
+}
+
+enum PixKeyType {
+  CPF
+  CNPJ
+  EMAIL
+  PHONE
+  EVP
+
+  @@map("pix_key_type")
+}
+
+enum BankAccountType {
+  CONTA_CORRENTE
+  CONTA_POUPANCA
+
+  @@map("bank_account_type")
+}
+
+enum PixKeyStatus {
+  AWAITING_ACTIVATION
+  ACTIVE
+  AWAITING_DELETION
+  AWAITING_ACCOUNT_DELETION
+  DELETED
+  ERROR
+
+  @@map("pix_key_status")
+}
+
+enum QrCodeType {
+  STATIC
+
+  @@map("qr_code_type")
+}
