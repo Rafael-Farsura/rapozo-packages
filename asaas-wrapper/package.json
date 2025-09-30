@@ -24,7 +24,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@rapozo/prisma": "^1.x",
+    "@rapozo/prisma-wrapper": "^2.x",
     "axios": "^1.11.0",
     "typescript": "^5.8.3"
   }
