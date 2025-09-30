@@ -20,10 +20,12 @@
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  
   "workspaces": [
     "src/*",
     "packages/*"
   ],
+
   "keywords": [],
   "author": "",
   "license": "ISC",
