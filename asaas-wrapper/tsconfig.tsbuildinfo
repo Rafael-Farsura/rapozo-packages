@@ -1,0 +1,809 @@
+{
+  "fileNames": [
+    "./node_modules/typescript/lib/lib.es5.d.ts",
+    "./node_modules/typescript/lib/lib.es2015.d.ts",
+    "./node_modules/typescript/lib/lib.es2016.d.ts",
+    "./node_modules/typescript/lib/lib.es2017.d.ts",
+    "./node_modules/typescript/lib/lib.es2018.d.ts",
+    "./node_modules/typescript/lib/lib.es2019.d.ts",
+    "./node_modules/typescript/lib/lib.es2020.d.ts",
+    "./node_modules/typescript/lib/lib.es2021.d.ts",
+    "./node_modules/typescript/lib/lib.es2022.d.ts",
+    "./node_modules/typescript/lib/lib.dom.d.ts",
+    "./node_modules/typescript/lib/lib.dom.iterable.d.ts",
+    "./node_modules/typescript/lib/lib.dom.asynciterable.d.ts",
+    "./node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+    "./node_modules/typescript/lib/lib.scripthost.d.ts",
+    "./node_modules/typescript/lib/lib.es2015.core.d.ts",
+    "./node_modules/typescript/lib/lib.es2015.collection.d.ts",
+    "./node_modules/typescript/lib/lib.es2015.generator.d.ts",
+    "./node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+    "./node_modules/typescript/lib/lib.es2015.promise.d.ts",
+    "./node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+    "./node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+    "./node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+    "./node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+    "./node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+    "./node_modules/typescript/lib/lib.es2016.intl.d.ts",
+    "./node_modules/typescript/lib/lib.es2017.arraybuffer.d.ts",
+    "./node_modules/typescript/lib/lib.es2017.date.d.ts",
+    "./node_modules/typescript/lib/lib.es2017.object.d.ts",
+    "./node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+    "./node_modules/typescript/lib/lib.es2017.string.d.ts",
+    "./node_modules/typescript/lib/lib.es2017.intl.d.ts",
+    "./node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+    "./node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
+    "./node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+    "./node_modules/typescript/lib/lib.es2018.intl.d.ts",
+    "./node_modules/typescript/lib/lib.es2018.promise.d.ts",
+    "./node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+    "./node_modules/typescript/lib/lib.es2019.array.d.ts",
+    "./node_modules/typescript/lib/lib.es2019.object.d.ts",
+    "./node_modules/typescript/lib/lib.es2019.string.d.ts",
+    "./node_modules/typescript/lib/lib.es2019.symbol.d.ts",
+    "./node_modules/typescript/lib/lib.es2019.intl.d.ts",
+    "./node_modules/typescript/lib/lib.es2020.bigint.d.ts",
+    "./node_modules/typescript/lib/lib.es2020.date.d.ts",
+    "./node_modules/typescript/lib/lib.es2020.promise.d.ts",
+    "./node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts",
+    "./node_modules/typescript/lib/lib.es2020.string.d.ts",
+    "./node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
+    "./node_modules/typescript/lib/lib.es2020.intl.d.ts",
+    "./node_modules/typescript/lib/lib.es2020.number.d.ts",
+    "./node_modules/typescript/lib/lib.es2021.promise.d.ts",
+    "./node_modules/typescript/lib/lib.es2021.string.d.ts",
+    "./node_modules/typescript/lib/lib.es2021.weakref.d.ts",
+    "./node_modules/typescript/lib/lib.es2021.intl.d.ts",
+    "./node_modules/typescript/lib/lib.es2022.array.d.ts",
+    "./node_modules/typescript/lib/lib.es2022.error.d.ts",
+    "./node_modules/typescript/lib/lib.es2022.intl.d.ts",
+    "./node_modules/typescript/lib/lib.es2022.object.d.ts",
+    "./node_modules/typescript/lib/lib.es2022.string.d.ts",
+    "./node_modules/typescript/lib/lib.es2022.regexp.d.ts",
+    "./node_modules/typescript/lib/lib.decorators.d.ts",
+    "./node_modules/typescript/lib/lib.decorators.legacy.d.ts",
+    "./node_modules/typescript/lib/lib.es2022.full.d.ts",
+    "./src/types/document/index.ts",
+    "./src/modules/accountdocumentmodule.ts",
+    "./src/types/clients/index.ts",
+    "./src/modules/clientmodule.ts",
+    "./src/types/fiscalinvoice/index.ts",
+    "./src/modules/fiscalinvoicemodule.ts",
+    "./src/types/subaccount/index.ts",
+    "./src/modules/subaccountsmodule.ts",
+    "./src/types/payment/index.ts",
+    "./src/types/anticipation/index.ts",
+    "./src/types/pix/index.ts",
+    "./src/types/index.ts",
+    "./src/modules/pix/pixmodule.ts",
+    "./src/modules/pix/pixtransactionmodule.ts",
+    "./src/modules/pix/index.ts",
+    "./src/modules/paymentmodule.ts",
+    "./src/modules/anticipationmodule.ts",
+    "./src/types/transfers/createtransfers/index.ts",
+    "./src/types/transfers/listtransfers/index.ts",
+    "./src/types/transfers/transfertoasaasaccount/index.ts",
+    "./src/modules/transfersmodule.ts",
+    "./src/modules/index.ts",
+    "./src/types/subscriptions/index.ts",
+    "./src/modules/subscriptionsmodule.ts",
+    "./node_modules/axios/index.d.cts",
+    "./src/client/httpclient.ts",
+    "./src/client/asaasclient.ts",
+    "./src/client/index.ts",
+    "./src/index.ts",
+    "./src/types/bill/index.ts",
+    "./src/modules/billmodule.ts",
+    "./src/modules/invoicesmodule.ts",
+    "./src/types/mobilephonerecharges/index.ts",
+    "./src/modules/mobilephonesrechargesmodule.ts",
+    "./src/types/negativation/index.ts",
+    "./src/modules/negativationmodule.ts",
+    "./src/types/invoices/index.ts"
+  ],
+  "fileIdsList": [
+    [
+      85,
+      87,
+      89
+    ],
+    [
+      88
+    ],
+    [
+      89,
+      90
+    ],
+    [
+      85,
+      91
+    ],
+    [
+      64,
+      91
+    ],
+    [
+      75,
+      91
+    ],
+    [
+      66,
+      91,
+      93
+    ],
+    [
+      66,
+      91
+    ],
+    [
+      68,
+      91
+    ],
+    [
+      65,
+      67,
+      69,
+      71,
+      78,
+      79,
+      80,
+      84
+    ],
+    [
+      91,
+      96
+    ],
+    [
+      91,
+      98
+    ],
+    [
+      72,
+      91
+    ],
+    [
+      76,
+      77
+    ],
+    [
+      91
+    ],
+    [
+      70,
+      91
+    ],
+    [
+      86,
+      91
+    ],
+    [
+      81,
+      82,
+      83,
+      91
+    ],
+    [
+      64,
+      66,
+      68,
+      70,
+      72,
+      73,
+      74
+    ]
+  ],
+  "fileInfos": [
+    {
+      "version": "c430d44666289dae81f30fa7b2edebf186ecc91a2d4c71266ea6ae76388792e1",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "45b7ab580deca34ae9729e97c13cfd999df04416a79116c3bfb483804f85ded4",
+      "impliedFormat": 1
+    },
+    {
+      "version": "3facaf05f0c5fc569c5649dd359892c98a85557e3e0c847964caeb67076f4d75",
+      "impliedFormat": 1
+    },
+    {
+      "version": "e44bb8bbac7f10ecc786703fe0a6a4b952189f908707980ba8f3c8975a760962",
+      "impliedFormat": 1
+    },
+    {
+      "version": "5e1c4c362065a6b95ff952c0eab010f04dcd2c3494e813b493ecfd4fcb9fc0d8",
+      "impliedFormat": 1
+    },
+    {
+      "version": "68d73b4a11549f9c0b7d352d10e91e5dca8faa3322bfb77b661839c42b1ddec7",
+      "impliedFormat": 1
+    },
+    {
+      "version": "5efce4fc3c29ea84e8928f97adec086e3dc876365e0982cc8479a07954a3efd4",
+      "impliedFormat": 1
+    },
+    {
+      "version": "feecb1be483ed332fad555aff858affd90a48ab19ba7272ee084704eb7167569",
+      "impliedFormat": 1
+    },
+    {
+      "version": "ee7bad0c15b58988daa84371e0b89d313b762ab83cb5b31b8a2d1162e8eb41c2",
+      "impliedFormat": 1
+    },
+    {
+      "version": "080941d9f9ff9307f7e27a83bcd888b7c8270716c39af943532438932ec1d0b9",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "2e80ee7a49e8ac312cc11b77f1475804bee36b3b2bc896bead8b6e1266befb43",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "d7a3c8b952931daebdfc7a2897c53c0a1c73624593fa070e46bd537e64dcd20a",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "80e18897e5884b6723488d4f5652167e7bb5024f946743134ecc4aa4ee731f89",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "cd034f499c6cdca722b60c04b5b1b78e058487a7085a8e0d6fb50809947ee573",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "c57796738e7f83dbc4b8e65132f11a377649c00dd3eee333f672b8f0a6bea671",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "dc2df20b1bcdc8c2d34af4926e2c3ab15ffe1160a63e58b7e09833f616efff44",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "515d0b7b9bea2e31ea4ec968e9edd2c39d3eebf4a2d5cbd04e88639819ae3b71",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "0559b1f683ac7505ae451f9a96ce4c3c92bdc71411651ca6ddb0e88baaaad6a3",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "0dc1e7ceda9b8b9b455c3a2d67b0412feab00bd2f66656cd8850e8831b08b537",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "ce691fb9e5c64efb9547083e4a34091bcbe5bdb41027e310ebba8f7d96a98671",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "8d697a2a929a5fcb38b7a65594020fcef05ec1630804a33748829c5ff53640d0",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "4ff2a353abf8a80ee399af572debb8faab2d33ad38c4b4474cff7f26e7653b8d",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "fb0f136d372979348d59b3f5020b4cdb81b5504192b1cacff5d1fbba29378aa1",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "d15bea3d62cbbdb9797079416b8ac375ae99162a7fba5de2c6c505446486ac0a",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "68d18b664c9d32a7336a70235958b8997ebc1c3b8505f4f1ae2b7e7753b87618",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "eb3d66c8327153d8fa7dd03f9c58d351107fe824c79e9b56b462935176cdf12a",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "38f0219c9e23c915ef9790ab1d680440d95419ad264816fa15009a8851e79119",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "69ab18c3b76cd9b1be3d188eaf8bba06112ebbe2f47f6c322b5105a6fbc45a2e",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "a680117f487a4d2f30ea46f1b4b7f58bef1480456e18ba53ee85c2746eeca012",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "2f11ff796926e0832f9ae148008138ad583bd181899ab7dd768a2666700b1893",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "4de680d5bb41c17f7f68e0419412ca23c98d5749dcaaea1896172f06435891fc",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "954296b30da6d508a104a3a0b5d96b76495c709785c1d11610908e63481ee667",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "ac9538681b19688c8eae65811b329d3744af679e0bdfa5d842d0e32524c73e1c",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "0a969edff4bd52585473d24995c5ef223f6652d6ef46193309b3921d65dd4376",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "9e9fbd7030c440b33d021da145d3232984c8bb7916f277e8ffd3dc2e3eae2bdb",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "811ec78f7fefcabbda4bfa93b3eb67d9ae166ef95f9bff989d964061cbf81a0c",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "717937616a17072082152a2ef351cb51f98802fb4b2fdabd32399843875974ca",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "d7e7d9b7b50e5f22c915b525acc5a49a7a6584cf8f62d0569e557c5cfc4b2ac2",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "71c37f4c9543f31dfced6c7840e068c5a5aacb7b89111a4364b1d5276b852557",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "576711e016cf4f1804676043e6a0a5414252560eb57de9faceee34d79798c850",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "89c1b1281ba7b8a96efc676b11b264de7a8374c5ea1e6617f11880a13fc56dc6",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "74f7fa2d027d5b33eb0471c8e82a6c87216223181ec31247c357a3e8e2fddc5b",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "d6d7ae4d1f1f3772e2a3cde568ed08991a8ae34a080ff1151af28b7f798e22ca",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "063600664504610fe3e99b717a1223f8b1900087fab0b4cad1496a114744f8df",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "934019d7e3c81950f9a8426d093458b65d5aff2c7c1511233c0fd5b941e608ab",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "52ada8e0b6e0482b728070b7639ee42e83a9b1c22d205992756fe020fd9f4a47",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "3bdefe1bfd4d6dee0e26f928f93ccc128f1b64d5d501ff4a8cf3c6371200e5e6",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "59fb2c069260b4ba00b5643b907ef5d5341b167e7d1dbf58dfd895658bda2867",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "639e512c0dfc3fad96a84caad71b8834d66329a1f28dc95e3946c9b58176c73a",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "368af93f74c9c932edd84c58883e736c9e3d53cec1fe24c0b0ff451f529ceab1",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "af3dd424cf267428f30ccfc376f47a2c0114546b55c44d8c0f1d57d841e28d74",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "995c005ab91a498455ea8dfb63aa9f83fa2ea793c3d8aa344be4a1678d06d399",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "959d36cddf5e7d572a65045b876f2956c973a586da58e5d26cde519184fd9b8a",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "965f36eae237dd74e6cca203a43e9ca801ce38824ead814728a2807b1910117d",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "3925a6c820dcb1a06506c90b1577db1fdbf7705d65b62b99dce4be75c637e26b",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "0a3d63ef2b853447ec4f749d3f368ce642264246e02911fcb1590d8c161b8005",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "8cdf8847677ac7d20486e54dd3fcf09eda95812ac8ace44b4418da1bbbab6eb8",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "8444af78980e3b20b49324f4a16ba35024fef3ee069a0eb67616ea6ca821c47a",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "3287d9d085fbd618c3971944b65b4be57859f5415f495b33a6adc994edd2f004",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "b4b67b1a91182421f5df999988c690f14d813b9850b40acd06ed44691f6727ad",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "8e7f8264d0fb4c5339605a15daadb037bf238c10b654bb3eee14208f860a32ea",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "782dec38049b92d4e85c1585fbea5474a219c6984a35b004963b00beb1aab538",
+      "affectsGlobalScope": true,
+      "impliedFormat": 1
+    },
+    {
+      "version": "3cbad9a1ba4453443026ed38e4b8be018abb26565fa7c944376463ad9df07c41",
+      "impliedFormat": 1
+    },
+    {
+      "version": "66fba883274dc9d7e08f03adbc2b80bdd0e89fbf2199af44a2a376a74fc7d54f",
+      "signature": "da8fd48e1198e524f8f4cd24e8133a954f63c91c284c6fc9781dd7982f9e611a",
+      "impliedFormat": 1
+    },
+    {
+      "version": "75df7d4f0fc840fb1fa1ab8382dd1754e660a1fe3362fe84a6ac37eae8cacd46",
+      "signature": "b24f76fa47a4c8a8c9121487de5202957e8ab6e5e8fe760d08c8ab9a681a14f0",
+      "impliedFormat": 1
+    },
+    {
+      "version": "e0c235c57f1722c3c76805af23a9aa11c705b01fdb6dd2223e1c2073fcc50b76",
+      "signature": "cca8eba6449ca55754010af625ce884489fb2da3af2ff11aae9cedbbc23a7839",
+      "impliedFormat": 1
+    },
+    {
+      "version": "1ef2cdd1bbd40825365c3cad762a83b28418abbb6775604b2a34e9bd01dc5caf",
+      "signature": "0ed18d8647504e02aeaa003dd21be92feeeb9992637b351abc771fa59b03776b",
+      "impliedFormat": 1
+    },
+    {
+      "version": "6a85ab3ff5400222bafe11923092ee6c6363d3de8b37ed68dd20f736875b201e",
+      "signature": "b2c45202ec162999ab898b9a43f6c364100c40acff50b4b61440c87aa5eacc77",
+      "impliedFormat": 1
+    },
+    {
+      "version": "0f16eaf821dbadb70be291abdc7292d2370a826c4c74d1a2dfb40415c003af5c",
+      "signature": "7df64147298380210d060613c7e4b4450b69626bbd185049254a4cb895958e81",
+      "impliedFormat": 1
+    },
+    {
+      "version": "a64d4d14ba0045adaf964b6edcfd7a37db1fe024bdb080fd33783f984f13e094",
+      "signature": "a977b77fce0024849a548a3c8a01a3f416b4a0894c7163bc00f1d4f53c156fe0",
+      "impliedFormat": 1
+    },
+    {
+      "version": "f6e90a2bb49e3d1dedbc8e79de9376ea5f2e9b239a7ee427c42e005a9deb3c44",
+      "signature": "0217d846c0714b8580fb511dcca2f28a65996d091835d209978d95a453f41a73",
+      "impliedFormat": 1
+    },
+    {
+      "version": "bba046c5638e1079e996eb486ffa0ad20d301432e7b52c582bc49ae114ae3ce4",
+      "signature": "aaf93936248dae357cd48d2e2f8ffb8dab747ca6882c206132ae4a531132f80d",
+      "impliedFormat": 1
+    },
+    {
+      "version": "52f0eac2ab3dbb0c37bce8dbcc545e7aca6fd5e57a5f4e3210016ef8e053f3a3",
+      "signature": "61b963f1491942a1c07257fa62725a921b71f643b030451bba03c515cd155e57",
+      "impliedFormat": 1
+    },
+    {
+      "version": "0554bd4b02707f0d3468a533e11c1c3624452d286f6a86d80a3315076839e228",
+      "signature": "16ad6a9ecf6b45ee8bd392ba489f9f29a3f5cedf77bdfc7c14ac0c12afea5bc3",
+      "impliedFormat": 1
+    },
+    {
+      "version": "d8dc7208190535bf5e9c01f14ca27d3350347d9e204cc9477b586d43ffe3550b",
+      "signature": "b0c1e2c0c81c6d52679316dc98d835912cd67721c990187163fa943352c14410",
+      "impliedFormat": 1
+    },
+    {
+      "version": "05ff6691b6a5e0d419201a46bdc0d1bdf0a5dc02b2f95062649300d975c82fc9",
+      "signature": "49db97c8d8e86a7eaa9d7e19fe9c364e877764b079c88d2e6b407a7ffa61db26",
+      "impliedFormat": 1
+    },
+    {
+      "version": "3e07f920089535af8f49668d234e40b7f6b8392c40f71a9d076774897fbb30fc",
+      "signature": "f7cead37a315b204cb272f8e754eeb8c066aa89245d6824bdea950304bbdd069",
+      "impliedFormat": 1
+    },
+    {
+      "version": "6b94bf6a113ed362aaf8efc5e742a43a6c2ee3f639b3aa4be34080e1da09de83",
+      "signature": "c1a45da040947be1dd791cbfb432472da8f43fb0d05691bde7ac8b11e33e6497",
+      "impliedFormat": 1
+    },
+    {
+      "version": "eeb38ab1527b3d70e9cb0fea9a0ed89ab106949e17d3e0134e6f518d75b9525b",
+      "signature": "a54da6b8477e4837d890b6d01df18533d4ea68d5ce4d0ab02a01993ff7a437c7",
+      "impliedFormat": 1
+    },
+    {
+      "version": "3a6a4492d25354a733129d3410085b254c6acde745a528a54efa62156adbf1fd",
+      "signature": "d0ba6f03277fe49d7b3ce8233a5b18da45ccf5f0a8c6da6b55a707500957cdd9",
+      "impliedFormat": 1
+    },
+    {
+      "version": "7556ee76de88d5b6d063f64dbfe7d486aada8b274c4dc1ab7f88a9d2c0d8b560",
+      "signature": "2d2735a637757d961b9f3e79919ad2ea1616d82df1ea4964d22bffae74a60971",
+      "impliedFormat": 1
+    },
+    {
+      "version": "590bcb934eb88b37495d4f9f760e89e27038daa5e02b7230c3180ce9986a8b6b",
+      "signature": "4eaa0e0079973d62e21d722b9ddae6adff19d8869870e9c4bb3cc009d0bd8342",
+      "impliedFormat": 1
+    },
+    {
+      "version": "4d094ac5d04fb5b66552d1450b37138b7feca8a1573834f42b8cecf21796a736",
+      "signature": "acf8cf3aa6f24c4b3f03c472c1de8e572c5e8c4942499cca0c1624e1e2dafe17",
+      "impliedFormat": 1
+    },
+    {
+      "version": "d35808bbf15b1ba5da32cedee6c163c75aae201ed74ddef5f35ca49cc7ba4c7e",
+      "signature": "bdd648b4448d111b215fc1a4a31cdea6df3570ae13492626edb6640fae5a6ae8",
+      "impliedFormat": 1
+    },
+    {
+      "version": "732ccc74aa62d4d01c509cfd928f630d81f96b7af28c0734e521b0cd86a4eeb2",
+      "signature": "255abd3989c82dad9593b8c948110e282d7ae46e49fc2fe2a52fb9b3df448fba",
+      "impliedFormat": 1
+    },
+    {
+      "version": "1a07e94a023bb721de88ebd4845fa69682b9b9aefae3171c6e4097cd04bbaed5",
+      "signature": "74d8c090c6088061e66f6d735e8cd18ddde34317eed5acecb24ec5702356b778",
+      "impliedFormat": 1
+    },
+    {
+      "version": "9e5bb2860191727b2c4ec60af3f9459800070e927ae9762e90e3ed827ccf77ea",
+      "signature": "ed0b37b2702c258a11ff66db0e51ed6fd5e4d7e4e223abccfd3d48438c893a74",
+      "impliedFormat": 1
+    },
+    {
+      "version": "7e4eb7ea47b28bae443a097d9d517c0a5c53c1bc66b0b3e037ab5992891b1633",
+      "impliedFormat": 1
+    },
+    {
+      "version": "a1ddd5ebc0bbf6633aa7ff24c576f7618347ebf4bd9889c14c6c6627b76adf67",
+      "signature": "f5882a15ec61be535774aacbfa160b0eb610ca741c6deb92d8506c2564fca84d",
+      "impliedFormat": 1
+    },
+    {
+      "version": "f859f9a2f2edf7ccd61b6b925335b2835544f525991044d2897abd3d3a493ee4",
+      "signature": "e037c1bb75ba499da2d58c2edb2d4bc12a1fbe731b564fdfeb609a00ced096ff",
+      "impliedFormat": 1
+    },
+    {
+      "version": "c5aa5ce6203c697a0b94eeba4b843d783de681a5a719eb8021fabd75892ed2d1",
+      "signature": "02a3fa132b466e4ce915ada31de1f6260d2b891fa577f65cf65fd730a1062c3d",
+      "impliedFormat": 1
+    },
+    {
+      "version": "57589ff537bcf08b16b9c18c37156d88a4efa77af81ccb353f369b54dfba800c",
+      "signature": "6d930dae00ed3ba065ccf836f272706b7abc2e38de8f70aa28e44c626f218e17",
+      "impliedFormat": 1
+    },
+    {
+      "version": "090872446b21b48d41bae93af59bfca5fa1d9cf9bc9e1231db8f80705ddc6e45",
+      "signature": "30bf40061807f0ff3e0487862a003f2818eeba22c1d93d695c645aaf550faea3",
+      "impliedFormat": 1
+    },
+    {
+      "version": "845cf4f9b92611574f6b02c159a78068213882658367f3ee8da820d9e4fb1733",
+      "signature": "cec8cf1f16430b52de1b67f3ff3d7bf9faaa52593e3cb22b48cad3b34a13243c",
+      "impliedFormat": 1
+    },
+    {
+      "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+      "impliedFormat": 1
+    },
+    {
+      "version": "e2a7b525cc84928010e672332f6d5344b8e611e18f8e22401a759a6089a835e3",
+      "signature": "b64907b0fc90b6ab575969ed3cb8f09a80110063a8568ec4dcad81a169e79d8e",
+      "impliedFormat": 1
+    },
+    {
+      "version": "f5cc285e89b3cb76999851c8c4cd75472f1044419f1c29ce3cd0a69f3cbb0060",
+      "signature": "a6b2c0a8ef8c93838f3fa7e35789b693b9c8ce67793adbf26d49bf20ae93776e",
+      "impliedFormat": 1
+    },
+    {
+      "version": "e375f8be5ae9b015dd6b412581f7f2a6856a7cbd16122e1e0b588edef1d434c6",
+      "signature": "7d8b6b42257e4dd3e93ab0f04f9fd5aa0e476adf9cd28a5e6cee92800aa09364",
+      "impliedFormat": 1
+    },
+    {
+      "version": "25a7b78ddf4e991bc67b67ed9f183178fa94b24804e16d1dee68d13d64d5a838",
+      "signature": "f27f1c0dfc8f93812fd3ef76aaa165b627cedea0dcbf4cd2f6b43c488a3090a5",
+      "impliedFormat": 1
+    },
+    {
+      "version": "a0e29b0f2117373b6791db1385676b5b0b54795bac213ab10c227f1fe3aeae7c",
+      "signature": "acb99b1007cc80a1a1bb6ca56ffbbab6dd5bf43248c7e4dca50f4a0028db52f8",
+      "impliedFormat": 1
+    }
+  ],
+  "root": [
+    [
+      64,
+      87
+    ],
+    [
+      89,
+      100
+    ]
+  ],
+  "options": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "esModuleInterop": true,
+    "module": 199,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": 9
+  },
+  "referencedMap": [
+    [
+      90,
+      1
+    ],
+    [
+      89,
+      2
+    ],
+    [
+      91,
+      3
+    ],
+    [
+      92,
+      4
+    ],
+    [
+      65,
+      5
+    ],
+    [
+      80,
+      6
+    ],
+    [
+      94,
+      7
+    ],
+    [
+      67,
+      8
+    ],
+    [
+      69,
+      9
+    ],
+    [
+      85,
+      10
+    ],
+    [
+      97,
+      11
+    ],
+    [
+      99,
+      12
+    ],
+    [
+      79,
+      13
+    ],
+    [
+      78,
+      14
+    ],
+    [
+      76,
+      6
+    ],
+    [
+      77,
+      15
+    ],
+    [
+      71,
+      16
+    ],
+    [
+      87,
+      17
+    ],
+    [
+      84,
+      18
+    ],
+    [
+      75,
+      19
+    ]
+  ],
+  "semanticDiagnosticsPerFile": [
+    [
+      76,
+      [
+        {
+          "start": 198,
+          "length": 14,
+          "messageText": "Cannot find module '@rapozo/prisma' or its corresponding type declarations.",
+          "category": 1,
+          "code": 2307
+        }
+      ]
+    ]
+  ],
+  "latestChangedDtsFile": "./dist/types/invoices/index.d.ts",
+  "version": "5.9.2"
+}

@@ -5,7 +5,7 @@ import {
   TypeAsaasStatusKey,
 } from "@types";
 import { HttpClient } from "../../client";
-import { PixKeyType } from "@aion/prisma";
+import { PixKeyType } from "@rapozo/prisma";
 
 interface getPixParams {
   offset?: number;

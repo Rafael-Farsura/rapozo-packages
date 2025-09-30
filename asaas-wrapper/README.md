@@ -6,7 +6,7 @@ estao separados por modulos e devem ser instanciados um cliente por modulo
 ## como usar
 
 ```
-import {AsaasClient} from '@aion/asaas-wrapper'
+import {AsaasClient} from '@rapozo/asaas-wrapper'
 
 const client = new AsaasClient('chave-de-api', sandbox = true)
 ```
@@ -16,7 +16,7 @@ const client = new AsaasClient('chave-de-api', sandbox = true)
 por exemplo, quero fazer uma requicao get, para retornar informacoes de pagamento
 
 ```
-import {AsaasClient} from '@aion/asaas-wrapper'
+import {AsaasClient} from '@rapozo/asaas-wrapper'
 
 const client = new AsaasClient('chave-de-api')
 

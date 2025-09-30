@@ -1,5 +1,5 @@
 {
-  "name": "@aion/prisma",
+  "name": "@rapozo/prisma-wrapper",
   "version": "1.0.0",
   "description": "",
   "main": "./generated/index.js",

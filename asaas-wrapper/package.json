@@ -1,5 +1,5 @@
 {
-  "name": "@aion/asaas-wrapper",
+  "name": "@rapozo/asaas-wrapper",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
@@ -16,13 +16,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "workspaces": [
-    "src/*"
+    "src/*",
+    "packages/*"
   ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@rapozo/prisma": "^1.x",
     "axios": "^1.11.0",
     "typescript": "^5.8.3"
   }
