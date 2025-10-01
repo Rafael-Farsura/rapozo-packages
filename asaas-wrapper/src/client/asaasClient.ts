@@ -7,7 +7,7 @@ import {
   PixTransaction,
   Payment,
   Anticipation,
-  Transfers
+  Transfers,
 } from "../modules";
 import { Subscriptions } from "../modules/subscriptionsModule";
 
